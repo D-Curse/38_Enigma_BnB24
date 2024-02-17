@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR DASHBOARD</title>
+    <link rel="stylesheet" href="{% static "css/dashboard.css" %}"/>
+</head>
+<body>
+    <div class="nav-bar"></div>
+    <div class="top-section">
+        <img src="{% static "img/uevo_1.svg" %}" width="12%" height="1%">
+    </div>
+    <div class="main-container">
+        <div class="application-list" >
+            <div class="serach-section">
+                <div class="warp">
+                    <div class="serach">
+                        <input type="text" class="searchTerm" placeholder="Serach Applicant" oninput="searchApplicants()">
+                    </div>
+                </div>
+                    <button class="filter" onclick="openFilterPopup()">Filter</button>
+            </div>
+            <div class="list">
+                <div class="applications">
+                    {% for person in people %}
+                        <div class="applicant">
+                            <div class="applicant-left-section">
+                                <div class="applicant-top-section">
+                                    <div class="applicant-name"> {{person.name}} </div>
+                                    <div class="qualification"> {{ person.qualifications }} </div>
+                                </div>
+                                <div class="applicant-bottom-section">
+                                    <div class="exprience">Exprience - {{ person.experience }}</div>
+                                    <div class="skills">Skills - {{ person.skills }}</div>
+                                    <div class="phone-number">Phone No : {{ person.phone_number }}</div>
+                                </div>
+                            </div>
+                            <div class="applicant-right-section">
+                                <button class="view">View</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="technical-hiring">
+            <div class="technical-head">Technical Hiring</div>
+                <li class="technical-list">
+                    <div class="large-text">18</div> 
+                    <div class="small-text">Days to hire</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">54</div> 
+                    <div class="small-text">Days to fill</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">98%</div> 
+                    <div class="small-text">Acceptance Rate</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">4.8%</div> 
+                    <div class="small-text">Withdrawal rate after (CC) </div></li>
+        </div>
+        <div class="requirement-cost">
+            <img src="{% static "img/graph.svg" %}" alt="">
+        </div>
+        <div class="non-technical-hiring">
+            <div class="non-technical-head">Non - Technical Hiring</div>
+            <ul>
+                <li class="non-technical-list">
+                    <div class="large-text">28</div> 
+                    <div class="small-text">Days to hire</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">37</div> 
+                    <div class="small-text">Days to fill</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">100%</div> 
+                    <div class="small-text">Acceptance Rate</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">4%</div> 
+                    <div class="small-text">Withdrawal rate after (CC) </div></li>
+            </ul>
+        </div>
+        
+        <div id="filterPopup" class="popup">
+            <div class="popup-content">
+                <h2>Select Skills</h2>
+                <form id="filterForm">
+                    <!-- Populate the skill options dynamically from the backend or define them manually -->
+                    <div class="flex-box">
+                    {% for skill in all_skills %}
+                        <label>
+                            <input type="checkbox" name="skills" value="{{ skill }}"> {{ skill }}
+                        </label>
+                    {% endfor %}
+                    </div>
+                    <button type="button" onclick="applyFilter()">Apply Filter</button>
+                </form>
+                <button onclick="closeFilterPopup()">Close</button>
+            </div>
+            <form id="csrf-form">{% csrf_token %}</form>
+        </div>
+    </div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://kit.fontawesome.com/25bbf2816f.js" crossorigin="anonymous"></script>
+<script>
+    function openFilterPopup() {
+        document.getElementById('filterPopup').style.display = 'block';
+    }
+
+    function closeFilterPopup() {
+        document.getElementById('filterPopup').style.display = 'none';
+    }
+
+ // Update your applyFilter function
+    function applyFilter() {
+        closeFilterPopup();
+
+        var selectedSkills = [];
+        var checkboxes = document.getElementsByName('skills');
+
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedSkills.push(checkbox.value);
+            }
+        });
+
+        var csrfToken = document.getElementById('csrf-form').getElementsByTagName('input')[0].value;
+
+        // Send AJAX request to the backend for filtering
+        $.ajax({
+            url: '/filter_people/',  // Updated endpoint for filtering
+            type: 'POST',
+            data: { skills: selectedSkills },
+            headers: { 'X-CSRFToken': csrfToken },
+            success: function(data) {
+                // Update the frontend with the received filtered data
+                updateFrontend(data);
+            },
+            error: function(error) {
+                console.error('Error fetching filtered data:', error);
+            }
+        });
+    }
+    function updateFrontend(data) {
+        // Assuming data is an array of filtered results
+        var applicants = document.getElementsByClassName('applicant');
+
+        for (var i = 0; i < applicants.length; i++) {
+            var applicantName = applicants[i].getElementsByClassName('applicant-name')[0].innerText.trim();
+    
+            // Check if the applicantName is present in the received data
+            var match = data.filtered_data.some(function(person) {
+                return person.name === applicantName;
+            });
+    
+            if (match) {
+                applicants[i].style.display = 'flex';
+            } else {
+                applicants[i].style.display = 'none';
+            }
+        }
+        console.log('Filtered Data:', data.filtered_data);
+
+    }
+
+    function searchApplicants() {
+        var searchTerm = document.querySelector('.searchTerm').value.toLowerCase();
+        var applicants = document.getElementsByClassName('applicant');
+
+        for (var i = 0; i < applicants.length; i++) {
+            var applicantName = applicants[i].getElementsByClassName('applicant-name')[0].innerText.toLowerCase();
+
+            if (applicantName.includes(searchTerm)) {
+                applicants[i].style.display = 'grid';
+            } else {
+                applicants[i].style.display = 'none';
+            }
+        }
+    }
+    
+</script>
+</html>

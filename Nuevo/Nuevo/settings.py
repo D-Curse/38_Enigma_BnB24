@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authApp',
     'adminApp',
+    'coreApp',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     BASE_DIR,'authApp/static',
     BASE_DIR,'adminApp/static',
+    BASE_DIR,'coreApp/static',
 ]
 
 # Default primary key field type

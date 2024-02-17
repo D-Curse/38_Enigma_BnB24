@@ -1,11 +1,110 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HR DASHBOARD</title>
+    <link rel="stylesheet" href="{% static "css/home.css" %}"/>
 </head>
 <body>
-    Home Page
+    <div class="nav-bar"></div>
+    <div class="top-section">
+        <img src="{% static "img/uevo_1.svg" %}" width="12%" height="1%">
+    </div>
+    <div class="main-container">
+        <div class="application-list" >
+            <div class="serach-section">
+                <div class="warp">
+                    <div class="serach">
+                        <input type="text" class="searchTerm" placeholder="Serach Applicant">
+                    </div>
+                </div>
+                    <button class="filter">Filter</button>
+            </div>
+            <div class="list">
+                <div class="applications">
+                    <div class="applicant">
+                        <div class="applicant-left-section">
+                            <div class="applicant-top-section">
+                                <div class="applicant-name">Yeshu - </div>
+                                <div class="qualification"> Bachelor's In Human Resoure Mangement</div>
+                            </div>
+                            <div class="applicant-bottom-section">
+                                <div class="exprience">Exprience - 3 years </div>
+                                <div class="skills">Skills - HRIS Management, Benefits Administration</div>
+                                <div class="phone-number">Phone No : +91 9136668654</div>
+                            </div>
+                        </div>
+                        <div class="applicant-right-section">
+                            <button class="view">View</button>
+                            
+                        </div>
+                    </div>
+                    <div class="applicant">
+                        <div class="applicant-left-section">
+                            <div class="applicant-top-section">
+                                <div class="applicant-name">Member 2 - </div>
+                                <div class="qualification"> Bachelor's In Human Resoure Mangement</div>
+                            </div>
+                            <div class="applicant-bottom-section">
+                                <div class="exprience">Exprience - 5 years </div>
+                                <div class="skills">Skills - HRIS Management, Benefits Administration</div>
+                                <div class="phone-number">Phone No : +91 9136668654</div>
+                            </div>
+                        </div>
+                        <div class="applicant-right-section">
+                            <button class="view">View</button>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="technical-hiring">
+            <div class="technical-head">Technical Hiring</div>
+                <li class="technical-list">
+                    <div class="large-text">18</div> 
+                    <div class="small-text">Days to hire</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">54</div> 
+                    <div class="small-text">Days to fill</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">98%</div> 
+                    <div class="small-text">Acceptance Rate</div>
+                </li>
+                <li class="technical-list">
+                    <div class="large-text">4.8%</div> 
+                    <div class="small-text">Withdrawal rate after (CC) </div></li>
+        </div>
+        <div class="requirement-cost">
+            <img src="{% static "img/graph.svg" %}" alt="">
+        </div>
+        <div class="non-technical-hiring">
+            <div class="non-technical-head">Non - Technical Hiring</div>
+            <ul>
+                <li class="non-technical-list">
+                    <div class="large-text">28</div> 
+                    <div class="small-text">Days to hire</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">37</div> 
+                    <div class="small-text">Days to fill</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">100%</div> 
+                    <div class="small-text">Acceptance Rate</div>
+                </li>
+                <li class="non-technical-list">
+                    <div class="large-text">4%</div> 
+                    <div class="small-text">Withdrawal rate after (CC) </div></li>
+            </ul>
+        </div>
+        
+    </div>
+    <script src="https://kit.fontawesome.com/25bbf2816f.js" crossorigin="anonymous"></script>
 </body>
 </html>

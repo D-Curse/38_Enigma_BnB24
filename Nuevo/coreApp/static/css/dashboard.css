@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: firasans;
+    src: url(./font/FiraSans-Regular.woff);
+}
+body{
+    background-color: #d9f4fd67;
+    font-family: firasans;
+}
+.top-section{
+    display: flex;
+    margin-top: 1.5%;
+    justify-content: center;
+}
+ 
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #006D77;
+    padding: 5px;
+    height: 50px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+    font-size: 120%;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #006D77;
+  }
+  
+
+  .serach-section{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    gap: 2%;
+}
+
+.filter{
+    background: #006d77e9;
+    color: #fff;
+    border: none;
+    font-size: 100%;
+    font-weight: bolder;
+    border-radius: 5%;
+}
+ul{
+    list-style-type: none;
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50%;
+}
+.application-list{
+    background: white;
+    margin: 1.5%;
+    padding:1%;
+    border-radius: 11px;
+    box-shadow:  26px 26px 53px #d9f4fd,
+             -26px -26px 53px #f0fbff;
+    height: 90%; 
+}
+.applicant{
+    display: grid;
+    margin:1.5%;
+    padding: 3%;
+    grid-template-columns: 4fr 1fr;
+    border-radius: 11px;
+    background: white;
+    box-shadow: 20px 20px 60px rgba(217, 244, 253, .2),
+     -20px -20px 60px rgba(217, 244, 253, .2);
+}
+
+.list{
+    margin: 1.5%;
+}
+.applications{
+    max-height: 350px; 
+    overflow-y: auto;  
+}
+.applicant-left-section{
+    display: grid;
+    gap: 50%;
+}
+.applicant-top-section{
+    display: flex;
+    font-size: 120%;
+    font-weight: 900;
+}
+.applicant-bottom-section{
+    display: flex;
+    justify-content: space-around;
+    font-size: 80%;
+}
+.applicant-right-section{
+    display: grid;
+    gap: 20%;
+}
+.view{
+    background: #006d77e9;
+    color: #fff;
+    border: none;
+    font-size: 120%;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+
+.technical-head, .non-technical-head{
+    font-weight: bolder;
+    font-size: 120%;
+}
+.technical-hiring, .non-technical-hiring{
+    margin: 5%;
+    padding: 5%;
+    border-radius: 11px;
+    background: white;
+    box-shadow:  20px 20px 60px #dae1e3,
+             -20px -20px 60px #f4f6f7;
+             line-height: 2.0;
+    
+}
+.technical-list, .non-technical-list{
+    display: flex;
+    align-items: baseline;
+    
+}
+.large-text{
+    margin-right:2% ;
+    font-weight: bolder;
+    font-size: 240%;
+}
+.small-text{
+    font-size: 120%;
+    opacity: .7;
+}
+.requirement-cost{
+    background: white;
+    margin: 2%;
+    padding: 1%;
+    border-radius: 11px;
+    box-shadow:  26px 26px 53px #d9f4fd,
+             -26px -26px 53px #f0fbff;
+    display: flex;
+    justify-content: center;
+    
+}
+/* Add these styles to your existing CSS file or create a new one */
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, .1);
+}
+
+.popup-content { 
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width:800px;
+    width: 100%;
+    text-align: center;
+    overflow-y: auto; /* Add this line for the scrollbar */
+    max-height: 400px; /* Set the max height as needed */
+}
+
+#filterForm .flex-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.popup h2 {
+    margin-bottom: 15px;
+}
+
+.popup label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.popup button {
+    background: #006d77;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.popup button:hover {
+    background: #005060;
+}
+
