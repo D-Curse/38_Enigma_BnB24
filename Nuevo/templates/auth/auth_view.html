@@ -9,18 +9,46 @@
     <link rel="stylesheet" href="{% static 'css/allAuthMain.css' %}">
 </head>
 <body>
-    <div class="login-container">
-        <h2>USER SIGNUP</h2>
-        <form method="post" action="{% url 'user_signup' %}">
+    <div class="container">
+        <div class="main">
+        <div class="head">
+         <h1 class="label">Choose Account Type</h1>
+        </div>
+        <div class = "account">
+            <label>
+                <input type="radio" class="radio" name="account_type"  onclick="showLoginForm('user')">
+                <img class="pfp" src="{% static "img/User.png" %}" alt="Option 1">
+                <div class="head2">
+                    <h2 class="label">  User </h2>
+                </div>
+              </label>
+              
+              <label>
+                <input type="radio" class="radio" name="account_type"  onclick="showLoginForm('hr')">
+                <img class="pfp" src="{% static "img/HR.png" %}" alt="Option 2">
+                <div class="head2">
+                    <h2 class="label"> HR </h2>
+                </div>
+              </label>
+        </div>
+
+        <div class="Signup" id="userSignupForm">
+            <div class="head3">
+            <h2 class="label">USER SIGN UP</h2>
+            </div>
+            <form class="form" method="post" action="{% url 'user_signup' %}">
             {% csrf_token %}
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" name="confirm_password" required>
-            <button type="submit">Signup</button>
-        </form>
+              <input type="text" class="formElement" id="signupUsername" name="username" placeholder="Username" required>
+              <br>
+              <input type="password" class="formElement" id="signupPassword" name="password" placeholder="Password" required>
+              <br>
+              <input type="password" class="formElement" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+              <br>
+              <button type="submit" class="label" id="button" value="Sign Up">Signup</button>
+              <br>
+              <span class="login-link" id="label" onclick="showLoginForm('user')"> Already have an account?</span>
+            </form>
+          </div>
 
         {% if errors %}
             <p class="error">
@@ -34,34 +62,82 @@
             </p>
         {% endif %}
 
-        <h2>USER LOGIN</h2>
-        <form method="post" action="{% url 'user_login' %}">
+        <div class="Login" id="userLoginForm">
+            <div class="head3">
+                <h2 class="label">USER LOGIN</h2>
+            </div>
+            <form class="form" method="post" action="{% url 'user_login' %}">
             {% csrf_token %}
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-
+              <input type="text" class="formElement" class="label" id="username" name="username" placeholder="Username" required>
+              <br>
+              <input type="password" class="formElement" class="label" id="password" name="password" placeholder="Password" required>
+              <br>
+              <button type="submit" class="label" id="button">Login</button>
+              <br>
+              <span class="signup-link" id="label" onclick="showSignupForm()">Not Registered Yet?</span>
+            </form>
+        </div>
         {% if error_invalid %}
             <p class="error">Error: Invalid username or password</p>
         {% endif %}
 
-        <span></span>
-        <h2>HR LOGIN</h2>
-        <form method="post" action="{% url 'hr_login' %}">
-            {% csrf_token %}
-            <label for="name">Name:</label>
-            <input type="text" name="name" required>
-            <label for="uuid">UUID:</label>
-            <input type="text" name="uuid" required>
-            <button type="submit">Login</button>
-        </form>
-        
+        <div class="Login" id="hrLoginForm">
+            <div class="head3">
+            <h2 class="label">HR LOGIN</h2>
+            </div>
+            <form class="form" method="post" action="{% url 'hr_login' %}">
+                {% csrf_token %}
+              <input type="text" class="formElement" id="hrUsername" name="name" placeholder="Your Name" required>
+              <br>
+              <input type="text" class="formElement" id="hrPassword" name="uuid" placeholder="Special Key" required>
+              <br>
+              <button type="submit" id="button" value="Login">Login</button>
+            </form>
+          </div>
+        </div>
         {% if error_invalid %}
             <p>Invalid HR credentials. Please check your name and UUID.</p>
         {% endif %}
     </div>
+</body>
+</html>
+
+<body>
+        
+        
+        <div class="Login" id="hrLoginForm">
+            <div class="head3">
+            <h2 class="label">HR Login</h2>
+            </div>
+            <form class="form">
+              <input type="text" class="formElement" id="hrUsername" name="hrUsername" placeholder="Username" required>
+              <br>
+              <input type="password" class="formElement" id="hrPassword" name="hrPassword" placeholder="Key" required>
+              <br>
+              <input type="submit" id="button" value="Login">
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoginForm(type) {
+          
+          document.getElementById('userLoginForm').style.display = 'none';
+          document.getElementById('hrLoginForm').style.display = 'none';
+          document.getElementById('userSignupForm').style.display = 'none';
+    
+          
+          document.getElementById(type + 'LoginForm').style.display = 'block';
+        }
+    
+        function showSignupForm() {
+          
+          document.getElementById('userLoginForm').style.display = 'none';
+          document.getElementById('hrLoginForm').style.display = 'none';
+          document.getElementById('userSignupForm').style.display = 'block';
+        }
+      </script>
+    
 </body>
 </html>
