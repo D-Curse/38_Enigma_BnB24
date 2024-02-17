@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Add HR Information</h2>
-    <form method="post" action="{% url 'hr_login' %}">
+    <form method="post" action="{% url 'admin_page' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add HR</button>

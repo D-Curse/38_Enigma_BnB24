@@ -66,9 +66,9 @@ def hr_login(request):
             hr = HR.objects.get(name=hr_name, uuid=hr_uuid)
             return render(request, 'home.html', {'hr': hr})
         except HR.DoesNotExist:
-            return render(request, 'hr_login.html', {'error_invalid': True})
+            return render(request, 'auth/auth_view.html', {'error_invalid': True})
 
-    return render(request, 'hr_login.html')
+    return render(request, 'auth/auth_view.html.html')
 
 def admin_page(request):
     if request.method == 'POST':
