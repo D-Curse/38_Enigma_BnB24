@@ -1,0 +1,32 @@
+<!-- admin_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h2>Add HR Information</h2>
+    <form method="post" action="{% url 'hr_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add HR</button>
+    </form>
+    
+    {% if hr %}
+        <p>HR added successfully! UUID: {{ hr.uuid }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'get_hr_uuid' %}">
+        {% csrf_token %}
+        <label for="name">HR Name:</label>
+        <input type="text" name="name" required>
+        <button type="submit">Get UUID</button>
+    </form>
+
+    {% if error_not_found %}
+        <p>HR not found with the provided name.</p>
+    {% endif %}
+</body>
+</html>

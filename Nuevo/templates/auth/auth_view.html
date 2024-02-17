@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/allAuthMain.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>USER SIGNUP</h2>
+        <form method="post" action="{% url 'user_signup' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" required>
+            <button type="submit">Signup</button>
+        </form>
+
+        {% if errors %}
+            <p class="error">
+                {% if errors.existing_user %}Username {{ errors.username }} already exists.{% endif %}
+                {% if errors.errors_password %}Passwords do not match.{% endif %}
+                {% if errors.error_pass_validation %}
+                    {% for message in errors.error_pass_validation %}
+                        {{ message }},
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <h2>USER LOGIN</h2>
+        <form method="post" action="{% url 'user_login' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        {% if error_invalid %}
+            <p class="error">Error: Invalid username or password</p>
+        {% endif %}
+
+        <span></span>
+        <h2>HR LOGIN</h2>
+        <form method="post" action="{% url 'hr_login' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name" required>
+            <label for="uuid">UUID:</label>
+            <input type="text" name="uuid" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        {% if error_invalid %}
+            <p>Invalid HR credentials. Please check your name and UUID.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
