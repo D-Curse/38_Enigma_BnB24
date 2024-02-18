@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth</title>
+    <link rel="stylesheet" href="{% static "css/user_form.css" %}">
+</head>
+<body>
+    <a id="logo" href="{% url 'home' %}">
+        <img src="{% static "img/logo.png" %}" width="250px" height="130px" alt="nuevo logo" />
+    </a>
+    <div class="main-container">
+        <div class="sub-container">
+            <div class="section-one">
+                <div class="heading">User Description</div>
+            </div>
+
+            <div class="section">
+                <div class="section-two">
+                    <div class="details">
+                        <img src="{% static "img/arrow_card.svg" %}" width="250%" height="8%" alt="">
+                        <div class="resume">Submit Your Resume</div>
+                        <div class="contact">Contact Us</div>
+                    </div> 
+                </div>
+                <div class="section-three">
+                    <form action="" class="main-form">
+                            <div class="section-part">
+                                <div class="form-section-one">
+                                    <label for="fullname">Full Name</label>
+                                    <input type="text" name="fullname" id="fullname">
+                                    <label for="qualification">Qualification</label>
+                                    <input type="text" name="qualification" id="qualification">                  
+                                    <label for="skills">Skills</label>
+                                    <input type="text" name="skills" id="skills">
+                                    
+                                </div>
+                                <div class="form-section-two">
+                                    <label for="experience">Experience</label>
+                                    <input type="text" name="exprience" id="experience"> 
+                                    <label for="phonenumber">Phone no </label>
+                                    <input type="number" name="phonenumber" id="phone-no">
+                                    <label for="address">Address </label>
+                                    <input type="text" name="Address" id="address">
+                                </div>
+
+                            </div>
+                            <div class="form-section-three">
+                                <label for="culturalfit">Cultural fit</label>
+                                <input type="text" name="culturalfit" id="cultural-fit">
+                            </div>
+                            <div class="bottom">
+                                <p> If the provided details are indeed correct, I kindly request that you proceed with submitting them accordingly.</p>
+                                <button class="submit">Submit</button>
+                            </div>
+                            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

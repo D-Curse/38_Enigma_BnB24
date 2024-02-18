@@ -11,6 +11,12 @@ body{
     font-family: firasans;
     color: #006D77;
 }
+
+a{
+    text-decoration: none;
+    color: #006D77;
+}
+
 .navbar{
     display: flex;
     justify-content: space-around;
@@ -91,4 +97,8 @@ button{
     border: none;
     font-size: 100%;
     border-radius: 10px;
+}
+
+button:hover{
+    cursor: pointer;
 }

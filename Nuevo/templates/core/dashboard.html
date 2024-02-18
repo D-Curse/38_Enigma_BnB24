@@ -11,7 +11,11 @@
 <body>
     <div class="nav-bar"></div>
     <div class="top-section">
-        <img src="{% static "img/uevo_1.svg" %}" width="12%" height="1%">
+        <div class="logo">
+            <a id="logo" href="{% url 'home' %}">
+                <img src="{% static "img/logo.png" %}" width="250px" height="130px" alt="nuevo logo" />
+            </a>
+        </div>
     </div>
     <div class="main-container">
         <div class="application-list" >
@@ -21,25 +25,52 @@
                         <input type="text" class="searchTerm" placeholder="Serach Applicant" oninput="searchApplicants()">
                     </div>
                 </div>
-                    <button class="filter" onclick="openFilterPopup()">Filter</button>
-
-                    <div id="filterPopup" class="popup">
-                        <div class="popup-content">
-                            <h2>Select Skills</h2>
-                            <form id="filterForm">
-                                <div class="flex-box">
-                                {% for skill in all_skills %}
-                                    <label>
-                                        <input type="checkbox" name="skills" value="{{ skill }}"> {{ skill }}
-                                    </label>
-                                {% endfor %}
-                                </div>
-                                <button type="button" onclick="applyFilter()">Apply Filter</button>
-                            </form>
-                            <button onclick="closeFilterPopup()">Close</button>
-                        </div>
-                        <form id="csrf-form">{% csrf_token %}</form>
+                <div class="container">
+                    <div class="select-btn">
+                        <span class="btn-text">Select Language</span>
+                        <span class="arrow-dwn">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
                     </div>
+                    <ul class="list-items">
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">HTML & CSS</span>
+                        </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">Bootstrap</span>
+                        </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">JavaScript</span>
+                        </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">Node.Js</span>
+                        </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">React JS</span>
+                        </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="fa-solid fa-check check-icon"></i>
+                            </span>
+                            <span class="item-text">Mango DB</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="list">
                 <div class="applications">
@@ -51,7 +82,7 @@
                                     <div class="qualification"> {{ person.qualifications }} </div>
                                 </div>
                                 <div class="applicant-bottom-section">
-                                    <div class="exprience">Exprience - {{ person.experience }}</div>
+                                    <div class="exprience">Experience - {{ person.experience }}</div>
                                     <div class="skills">Skills - {{ person.skills }}</div>  
                                     <div class="phone-number">Phone No : {{ person.phone_number }}</div>
                                 </div>
@@ -107,35 +138,12 @@
                     <div class="small-text">Withdrawal rate after (CC) </div></li>
             </ul>
         </div>
-        <div id="filterPopup" class="popup">
-            <div class="popup-content">
-                <h2>Select Skills</h2>
-                <form id="filterForm">
-                    <div class="flex-box">
-                    {% for skill in all_skills %}
-                        <label>
-                            <input type="checkbox" name="skills" value="{{ skill }}"> {{ skill }}
-                        </label>
-                    {% endfor %}
-                    </div>
-                    <button type="button" onclick="applyFilter()">Apply Filter</button>
-                </form>
-                <button onclick="closeFilterPopup()">Close</button>
-            </div>
-            <form id="csrf-form">{% csrf_token %}</form>
-        </div>
     </div>
     
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://kit.fontawesome.com/25bbf2816f.js" crossorigin="anonymous"></script>
 <script>
-    function openFilterPopup() {
-        document.getElementById('filterPopup').style.display = 'block';
-    }
-    function closeFilterPopup() {
-        document.getElementById('filterPopup').style.display = 'none';
-    }
     function searchApplicants() {
         var searchTerm = document.querySelector('.searchTerm').value.toLowerCase();
         var applicants = document.getElementsByClassName('applicant');
@@ -151,7 +159,22 @@
         }
     }
 
-
-    
+    const selectBtn = document.querySelector(".select-btn"),
+    items = document.querySelectorAll(".item");
+    selectBtn.addEventListener("click", () => {
+        selectBtn.classList.toggle("open");
+    });
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checked = document.querySelectorAll(".checked"),
+            btnText = document.querySelector(".btn-text");
+            if(checked && checked.length > 0){
+                btnText.innerText = "Select Language";
+            }else{
+                btnText.innerText = "Select Language";
+            }
+        });
+    })
 </script>
 </html>

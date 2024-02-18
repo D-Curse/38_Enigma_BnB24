@@ -10,8 +10,12 @@
 </head>
 <body>
     <div class="navbar">
-        <div class="username">Dashboard</div>
-        <img src="{% static "img/uevo_1.svg" %}" width="10%" height="10%" alt="">
+        <div class="username">
+            <a href="{% url 'dashboard' %}">Dashboard </a>
+        </div>
+        <a id="logo" href="{% url 'home' %}">
+            <img src="{% static "img/logo.png" %}" width="230px" height="100px" alt="nuevo logo" />
+        </a>
         <div class="profile"><i class="fa-regular fa-user"></i> Profile</div>
     </div>
     <div class="container">
@@ -19,7 +23,7 @@
         <div class="sub-container">
             <div class="userimage">
                 <img src="{% static "img/placeholder.svg" %}" width="14%" height="12%" alt="">
-                <div class="name">{{profile_data.username}}</div>
+                <div class="name">{{profile_data.name}}</div>
             </div>
             
             <div class="job-name">Full Stack Developer</div>

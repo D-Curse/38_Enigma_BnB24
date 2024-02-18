@@ -1,0 +1,25 @@
+<!-- in templates/display_people.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display People</title>
+    <link rel="stylesheet" href="{% static 'css/display_people.css'%}"
+</head>
+<body>
+    <h1>People List</h1>
+    <ul>
+        {% for person in people %}
+            <li>
+                <strong>Name:</strong> {{ person.name }}<br>
+                <strong>Qualifications:</strong> {{ person.qualifications }}<br>
+                <strong>Experience:</strong> {{ person.experience }} years<br>
+                <strong>Skills:</strong> {{ person.skills }}<br>
+                <strong>Cultural Fit:</strong> {{ person.cultural_fit }}<br>
+                <strong>Phone Number:</strong> {{ person.phone_number }}<br>
+                <strong>Resume Path:</strong> {{ person.resume_path }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

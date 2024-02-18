@@ -9,7 +9,6 @@ import random
 fake = Faker()
 
 def generate_random_data(request):
-    # Function to generate random data for a Person
     def generate_random_person():
         return Person(
             name=fake.name(),
@@ -20,17 +19,12 @@ def generate_random_data(request):
             phone_number=fake.phone_number(),
             resume_path=f''
         )
-
-    # Generate 100 random Person objects
     people_data = [generate_random_person() for _ in range(100)]
-
-    # Use bulk_create to insert the data into the database
     Person.objects.bulk_create(people_data)
 
     return HttpResponse("Random data generated and added to the database.")
 
 def delete_all_data(request):
-    # Remove all existing data from the Person model
     Person.objects.all().delete()
 
     return HttpResponse("Random data generated and added to the database.")

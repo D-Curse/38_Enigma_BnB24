@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: firasans;
+    src: url(./font/FiraSans-Regular.woff);
+}
+body{
+    background-color: #d9f4fd67;
+    font-family: firasans;
+    color: #006D77;
+}
+
+#logo{
+    margin: 2% 0 0 4%;
+}
+
+.details{
+    position: absolute;
+    left: 8%;
+    max-width: 10%;
+}
+.contact{
+    position: absolute;
+    font-size: 150%;
+    right: -15%;
+    bottom: -50%;
+}
+.resume{
+    position: absolute;
+    font-size: 150%;
+    width: 150%;
+    left: 40%;
+}
+.heading{
+    font-size: 350%;
+    font-weight: bolder;
+}
+.sub-container{
+    border-radius: 20px;
+    margin: 2% 10% 10% 10%;
+    padding: 3%;
+    background-color: white;
+}
+.main-form{
+    padding: 2%;
+}
+.section{
+    display: flex;
+    width: 100%;
+}
+.section-two{
+    width: 100%;
+    max-width: 30%;
+}
+.section-three{
+    width: 100%;
+    max-width: 70%;
+}
+.form-section-three{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.section-part{
+    display: flex;
+
+}
+.form-section-two{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50%;
+}
+.form-section-one{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50%;
+}
+label{
+    margin-block: 1%;
+    margin-inline: 1%;
+    font-size: 120%;
+}
+input{
+    width: 100%;
+    max-width: 90%;
+    padding: 2.5%;
+    margin-block: 1%;
+    margin-inline: 2%;
+}
+#cultural-fit{margin-inline: 1%;}
+.submit{
+    border: none;
+    border-radius: 5px;
+    padding:1% 8%;
+    background-color: #006D77;
+    color: #EDF6F9;
+    font-size: 120%;
+    font-weight: bolder;
+}
+.bottom{
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-between;
+    width: 100%;
+}
+p{
+    width: 70%;
+}

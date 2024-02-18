@@ -2,109 +2,156 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR DASHBOARD</title>
-    <link rel="stylesheet" href="{% static "css/home.css" %}"/>
-</head>
-<body>
-    <div class="nav-bar"></div>
-    <div class="top-section">
-        <img src="{% static "img/uevo_1.svg" %}" width="12%" height="1%">
-    </div>
-    <div class="main-container">
-        <div class="application-list" >
-            <div class="serach-section">
-                <div class="warp">
-                    <div class="serach">
-                        <input type="text" class="searchTerm" placeholder="Serach Applicant">
-                    </div>
-                </div>
-                    <button class="filter">Filter</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static "css/home.css" %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body class="main">
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+            <a id="logo" href="{% url 'home' %}">
+                <img src="{% static "img/logo.png" %}" alt="nuevo logo" />
+            </a>
+        </div>
+        <div class="icons">
+          <div class="icon">
+            <a href="#contactUs">
+              <span class="material-icons-round"> contact_phone </span>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="{% url 'auth_view' %}">
+            <span class="material-icons-round"> login </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sections">
+      <div class="section" id="features">
+        <div class="imgBox">
+          <img class="imagePanel" src="{% static "img/home.png" %}" alt="Features" />
+        </div>
+        <div class="contentBox">
+          <div>
+            <h1 class="headingRight">What is Nuevo?</h1>
+          </div>
+          <div class="contentRight">
+            <p>
+              "Nuevo's dashboard simplifies hiring by filtering resumes and predicting top candidates who fit your company culture, ensuring the selection of top-tier talent."
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="userFeatures">
+        <div class="contentBox">
+          <div>
+            <h1 class="headingLeft">
+              Minimizing Hiring Challenges: Your Path to Smooth Recruitment
+            </h1>
+          </div>
+          <div class="contentLeft">
+            <p>
+              The website's user-friendly interface and streamlined application
+              process make it quick and easy for job seekers to apply for
+              multiple positions, saving time and effort.
+            </p>
+            <p>
+              The website partners with top-tier companies and organizations,
+              providing job seekers with access to a wide range of reputable
+              employers and enticing career prospects.
+            </p>
+            <a href="{% url 'auth_view' %}">
+              <button>SignUp Now</button>
+            </a>
+          </div>
+        </div>
+        <div class="imgBox">
+          <img
+            class="imagePanel"
+            src="{% static "img/userFeatures.png" %}"
+            alt="Features"
+          />
+        </div>
+      </div>
+      <div class="section" id="hrFeatures">
+        <div class="imgBox">
+          <img
+            class="imagePanel"
+            src="{% static "img/hrFeatures.png" %}"
+            alt="Features"
+          />
+        </div>
+
+
+        <div class="contentBox">
+          <div>
+            <h1 class="headingRight">Advanced HR Dashboard Features</h1>
+          </div>
+          <div class="contentRight">
+            <p>
+              Smart Resume Filtering whichs aids to effortlessly sift through
+              resumes with advanced filtering options.
+            </p>
+            <p>
+              Leverage data-driven insights and predictive analytics to identify
+              top-tier candidates who not only meet the requirements of the role
+              but also possess the potential to thrive within your
+              organization's culture.
+            </p>
+            <a href="{% url 'auth_view' %}">
+              <button>Get Started</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="contactUs" id="contactUs">
+        <div class="contentBox">
+          <div>
+            <h1 class="footerHeading">Connect with Us Today!</h1>
+          </div>
+          <div class="footerContent">
+            <p>We are always ready to help!</p>
+            <div class="contactLinks">
+                <img class="contactLogo" src="{% static "img/Instagram.png" %}" alt="">
+              <div>
+                <p>Nuevo_Official</p>
+              </div>
             </div>
-            <div class="list">
-                <div class="applications">
-                    <div class="applicant">
-                        <div class="applicant-left-section">
-                            <div class="applicant-top-section">
-                                <div class="applicant-name">Yeshu - </div>
-                                <div class="qualification"> Bachelor's In Human Resoure Mangement</div>
-                            </div>
-                            <div class="applicant-bottom-section">
-                                <div class="exprience">Exprience - 3 years </div>
-                                <div class="skills">Skills - HRIS Management, Benefits Administration</div>
-                                <div class="phone-number">Phone No : +91 9136668654</div>
-                            </div>
-                        </div>
-                        <div class="applicant-right-section">
-                            <button class="view">View</button>
-                            
-                        </div>
-                    </div>
-                    <div class="applicant">
-                        <div class="applicant-left-section">
-                            <div class="applicant-top-section">
-                                <div class="applicant-name">Member 2 - </div>
-                                <div class="qualification"> Bachelor's In Human Resoure Mangement</div>
-                            </div>
-                            <div class="applicant-bottom-section">
-                                <div class="exprience">Exprience - 5 years </div>
-                                <div class="skills">Skills - HRIS Management, Benefits Administration</div>
-                                <div class="phone-number">Phone No : +91 9136668654</div>
-                            </div>
-                        </div>
-                        <div class="applicant-right-section">
-                            <button class="view">View</button>
-                
-                        </div>
-                    </div>
-                </div>
+            <div class="contactLinks">
+                <img class="contactLogo" src="{% static "img/facebook.png" %}" alt="">
+              <div>
+                <p>Nuevo</p>
+              </div>
             </div>
+            <div class="contactLinks">
+                <img class="contactLogo" src="{% static "img/Twitter.png" %}" alt="">
+              <div>
+                <p>Nuevo_Inc.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="technical-hiring">
-            <div class="technical-head">Technical Hiring</div>
-                <li class="technical-list">
-                    <div class="large-text">18</div> 
-                    <div class="small-text">Days to hire</div>
-                </li>
-                <li class="technical-list">
-                    <div class="large-text">54</div> 
-                    <div class="small-text">Days to fill</div>
-                </li>
-                <li class="technical-list">
-                    <div class="large-text">98%</div> 
-                    <div class="small-text">Acceptance Rate</div>
-                </li>
-                <li class="technical-list">
-                    <div class="large-text">4.8%</div> 
-                    <div class="small-text">Withdrawal rate after (CC) </div></li>
+        <div class="footerImage">
+          <img class="footerImagePanel" src="{% static "img/contactUs.png" %}" alt="Features" />
         </div>
-        <div class="requirement-cost">
-            <img src="{% static "img/graph.svg" %}" alt="">
-        </div>
-        <div class="non-technical-hiring">
-            <div class="non-technical-head">Non - Technical Hiring</div>
-            <ul>
-                <li class="non-technical-list">
-                    <div class="large-text">28</div> 
-                    <div class="small-text">Days to hire</div>
-                </li>
-                <li class="non-technical-list">
-                    <div class="large-text">37</div> 
-                    <div class="small-text">Days to fill</div>
-                </li>
-                <li class="non-technical-list">
-                    <div class="large-text">100%</div> 
-                    <div class="small-text">Acceptance Rate</div>
-                </li>
-                <li class="non-technical-list">
-                    <div class="large-text">4%</div> 
-                    <div class="small-text">Withdrawal rate after (CC) </div></li>
-            </ul>
-        </div>
-        
+      </div>
+
     </div>
-    <script src="https://kit.fontawesome.com/25bbf2816f.js" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

@@ -20,12 +20,14 @@ def filter_people(request):
         selected_skills = request.POST.getlist('skills[]')  # Assuming skills is a list
         filtered_people = Person.objects.filter(skills__in=selected_skills)
 
-        # Return a JSON response with the filtered data directly as an array
         filtered_data = [{'name': person.name, 'qualifications': person.qualifications, 'experience': person.experience, 'skills': person.skills, 'phone_number': person.phone_number} for person in filtered_people]
 
         return JsonResponse({'filtered_data': filtered_data})
 
     return JsonResponse({'error': 'Invalid request method'})
+
+def profile_form(request):
+    return render(request, 'core/user_form.html')
 
 def profile_view(request, user_id):
     person = get_object_or_404(Person, id=user_id)
@@ -37,5 +39,7 @@ def profile_view(request, user_id):
         'skills': person.skills,
         'phone_number': person.phone_number,
     }
+    
+    print(profile_data)
 
     return render(request, 'core/profile_template.html', {'profile_data': profile_data})

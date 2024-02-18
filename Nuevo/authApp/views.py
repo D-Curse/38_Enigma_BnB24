@@ -38,7 +38,7 @@ def user_signup(request):
         else:
             myuser = User.objects.create_user(username=username, password=password)
             myuser.save()
-            return render(request, "home.html",)
+            return render(request, "core/user_form.html",)
     return render(request, 'auth/auth_view.html')
 
 def user_login(request):
@@ -46,16 +46,14 @@ def user_login(request):
         username = request.POST['username']
         password = request.POST['password'] 
         user = authenticate(username=username, password=password)
-        
-        #context = {'user' : username,}
-        #request.session['login_context'] = context
+
         
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('profile_form')
         else:
             return render(request, "auth/auth_view.html", {'error_invalid':True})
-    return render(request, 'home.html')
+    return render(request, 'profile_form.html')
 
 def hr_login(request):
     if request.method == 'POST':
@@ -64,7 +62,7 @@ def hr_login(request):
 
         try:
             hr = HR.objects.get(name=hr_name, uuid=hr_uuid)
-            return render(request, 'home.html', {'hr': hr})
+            return redirect('dashboard') 
         except HR.DoesNotExist:
             return render(request, 'auth/auth_view.html', {'error_invalid': True})
 
