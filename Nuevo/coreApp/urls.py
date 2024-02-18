@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('filter_people/', views.filter_people, name='filter_people'),
+    path('profile/<int:user_id>/',views.profile_view, name='profile_view'),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

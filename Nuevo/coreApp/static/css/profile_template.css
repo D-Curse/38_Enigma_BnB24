@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: firasans;
+    src: url(./font/FiraSans-Regular.woff);
+}
+body{
+    background-color: #d9f4fd67;
+    font-family: firasans;
+    color: #006D77;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+    backdrop-filter: blur(5px);
+    font-family: firasans;
+    font-size: 150%;
+    color: #006D77;
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    margin-inline: 10%;
+    background: white;
+    border-radius: 20px;
+}
+.sub-container{
+    width: 100%;
+    padding: 3%;
+}
+.userimage{
+    display: flex;
+    align-items: center;
+    color: #006D77;
+    font-size: 180%;
+    width: 100%;
+    max-width: 55%;
+    justify-content:space-between;
+}
+
+.job-name{
+    margin-top: 2%;
+    border-top: 3px solid #83C5BE ;
+    font-size: 160%;
+    font-weight: bolder;
+    padding-block:  2%;
+}
+.user-description{
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+}
+.about, .qualification,.experience, .skills, .phone-no ,.resume, .cultural-fit{
+    line-height: 1.6;
+}
+.about-heading, .qualification-heading, .experience-heading, .skills-heading,.phone-no-heading, .resume-heading, .cultural-fit-heading{
+    text-decoration: underline #006D77;
+    font-weight: bolder;
+    font-size: 140%;
+    margin-block: 1%;
+}
+li{
+    list-style-type: none;
+}
+.section-one{
+    display: flex;
+    width: 100%;
+    
+}
+.section-two{
+    margin: 1.2%;
+    width: 100%;
+    max-width: 50%;
+}
+.section-three{
+    margin:1.2%;
+    padding-left: 5%;
+    width: 100%;
+    max-width: 50%;
+}
+
+button{
+    background-color: #006D77;
+    width: 20%;
+    color: #EDF6F9;
+    padding: 1% ;
+    border: none;
+    font-size: 100%;
+    border-radius: 10px;
+}

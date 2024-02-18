@@ -99,7 +99,10 @@ ul{
     display: grid;
     gap: 20%;
 }
+
 .view{
+    text-align: center;
+    padding: 2px;
     background: #006d77e9;
     color: #fff;
     border: none;
@@ -107,7 +110,6 @@ ul{
     font-weight: bolder;
     border-radius: 5px;
 }
-
 
 .technical-head, .non-technical-head{
     font-weight: bolder;
@@ -118,8 +120,8 @@ ul{
     padding: 5%;
     border-radius: 11px;
     background: white;
-    box-shadow:  20px 20px 60px #dae1e3,
-             -20px -20px 60px #f4f6f7;
+    box-shadow:  26px 26px 53px #d9f4fd,
+    -26px -26px 53px #f0fbff;
              line-height: 2.0;
     
 }
@@ -153,13 +155,10 @@ ul{
 .popup {
     display: none;
     position: absolute;
-    top: 35%;
-    left: 40%;
-    width: 100%;
-    height: 100%;
+    top: 30%;
+    left: 20%;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, .1);
 }
 
 .popup-content { 

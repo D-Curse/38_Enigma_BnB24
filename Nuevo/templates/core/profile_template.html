@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static "css/profile_template.css" %}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="username">Dashboard</div>
+        <img src="{% static "img/uevo_1.svg" %}" width="10%" height="10%" alt="">
+        <div class="profile"><i class="fa-regular fa-user"></i> Profile</div>
+    </div>
+    <div class="container">
+        {% if profile_data %}
+        <div class="sub-container">
+            <div class="userimage">
+                <img src="{% static "img/placeholder.svg" %}" width="14%" height="12%" alt="">
+                <div class="name">{{profile_data.username}}</div>
+            </div>
+            
+            <div class="job-name">Full Stack Developer</div>
+            <div class="user-description">
+                <div class="about">
+                    <div class="about-heading">About</div>
+                    <div class="about-user"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi eveniet vel quisquam voluptates autem, ipsam veniam vitae architecto aliquam tenetur ipsum delectus nihil tempora necessitatibus facere ea, omnis nam esse!
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda quisquam, accusantium rerum vel autem atque, blanditiis adipisci iste illum eaque sunt dolores. Incidunt, dolore! Iste esse itaque asperiores deserunt harum.
+                    </div>
+                </div>
+                <div class="section-one">
+                    <div class="section-two">
+                        <div class="qualification">
+                            <div class="qualification-heading">Qualification</div>
+                            <div class="user-qualification">
+                                <div class="qualification-list">
+                                    <li>Bachelor of Engineering (Computer Science)</li>
+                                    <li>Master of Computer Science (MCS)</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills">
+                            <div class="skills-heading">
+                                Skills
+                            </div>
+                            <div class="user-skills">
+                                <div class="skills list">
+                                    <li>Front-end Languages and Frameworks (HTML, CSS, JavaScript,React)</li>
+                                    <li>Backend Technologies and Frameworks (NodeJS, ExpressJS, Django, Flask, C++)</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="phone-no">
+                            <div class="phone-no-heading">Phone no</div>
+                            <div class="user-phone-no">+91 8976524503</div>
+                        </div>
+                    </div>
+
+                    <div class="section-three">
+                        
+                        <div class="experience">
+                            <div class="experience-heading">Experience</div>
+                            <div class="user-experience">
+                                <div class="experience-list">
+                                    <li>Create apps and websites for local businesses </li>
+                                    <li>Participate in Coding Challenges</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cultural-fit">
+                            <div class="cultural-fit-heading">Cultural Fit</div>
+                            <div class="user-cultural-fit">
+                                <div class="cultural-fit-list">
+                                    <li>Cricket</li>
+                                    <li>Borad Games</li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume">
+                            <div class="resume-heading">Resume</div>
+                            <div class="user-resume">
+                                <button>Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://kit.fontawesome.com/25bbf2816f.js" crossorigin="anonymous"></script>
+</body>
+</html>

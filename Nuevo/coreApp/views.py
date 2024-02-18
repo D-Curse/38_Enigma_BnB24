@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from adminApp.models import Person
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -26,3 +26,16 @@ def filter_people(request):
         return JsonResponse({'filtered_data': filtered_data})
 
     return JsonResponse({'error': 'Invalid request method'})
+
+def profile_view(request, user_id):
+    person = get_object_or_404(Person, id=user_id)
+    
+    profile_data = {
+        'name': person.name,
+        'qualifications': person.qualifications,
+        'experience': person.experience,
+        'skills': person.skills,
+        'phone_number': person.phone_number,
+    }
+
+    return render(request, 'core/profile_template.html', {'profile_data': profile_data})
